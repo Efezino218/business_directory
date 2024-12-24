@@ -23,9 +23,9 @@
                     <td>{{ user[0] }}</td>
                     <td>{{ user[1] }}</td>
                     <td>{{ user[2] }}</td>
-                    <td>{{ 'Yes' if user[3] else 'No' }}</td>
-                    <td>{{ 'Yes' if user[4] else 'No' }}</td>
-                    <td>{{ 'Yes' if user[5] else 'No' }}</td>
+                    <td>{% if user[4] == False %} No {% else %} Yes {% endif %}</td>
+                    <td>{% if user[5] == True %} Yes {% else %} No {% endif %}</td>
+                    <td>{% if user[7] == False %} No {% else %} Yes {% endif %}</td>
                     <td class="action-cell">
                         <div class="action-dropdown" id="dropdown-{{ user[0] }}">
                             <button class="action-btn"
@@ -33,11 +33,12 @@
                             <div class="action-menu">
                                 <a class="menu-item" href="{{ url_for('view_user_businesses', user_id=user[0]) }}">View
                                     Businesses</a>
-                                {% if user[5] %}
+                                {% if user[7] == False %}
+                                <a class="menu-item" href="{{ url_for('suspend_user', user_id=user[0]) }}">Suspend</a>
+
+                                {% else %}
                                 <a class="menu-item"
                                     href="{{ url_for('unsuspend_user', user_id=user[0]) }}">Unsuspend</a>
-                                {% else %}
-                                <a class="menu-item" href="{{ url_for('suspend_user', user_id=user[0]) }}">Suspend</a>
                                 {% endif %}
                                 <form action="{{ url_for('delete_user', user_id=user[0]) }}" method="post"
                                     class="menu-item">

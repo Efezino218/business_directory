@@ -630,7 +630,7 @@ def admin_login():
                     session['admin_logged_in'] = True
                     session['admin_id'] = admin[0]  # Store admin id in the session
                     session['admin_username'] = admin[1]  # Store admin Username in the session
-                    session['admin_profile_pic'] = admin[4]  # Store admin profile_pic in the session
+                    session['admin_profile_pic'] = admin[3]  # Store admin profile_pic in the session
 
                     
                     flash('Admin has been login sucessful.', 'success')
