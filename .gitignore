@@ -8,7 +8,7 @@ __pycache__/
 .env
 
 # Ignore the file steps_to_create_gitignore_and_requirements.txt
-steps_to_create_gitignore_and_requirements.txt
+steps_to_create_gitignore_and_requirement_database_export.txt
 
 
 
